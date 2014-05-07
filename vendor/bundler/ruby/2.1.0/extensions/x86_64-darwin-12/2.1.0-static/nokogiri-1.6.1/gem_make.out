@@ -1,0 +1,95 @@
+/Users/katsube/.rbenv/versions/2.1.1/bin/ruby extconf.rb 
+Extracting libxml2-2.8.0.tar.gz into tmp/i686-apple-darwin11/ports/libxml2/2.8.0... OK
+Running 'configure' for libxml2 2.8.0... OK
+Running 'compile' for libxml2 2.8.0... OK
+Running 'install' for libxml2 2.8.0... OK
+Activating libxml2 2.8.0 (from /Volumes/SSPHDU3/project/99_sample/RailsApp/sample_app/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.1/ports/i686-apple-darwin11/libxml2/2.8.0)...
+Extracting libxslt-1.1.26.tar.gz into tmp/i686-apple-darwin11/ports/libxslt/1.1.26... OK
+Running 'configure' for libxslt 1.1.26... OK
+Running 'compile' for libxslt 1.1.26... OK
+Running 'install' for libxslt 1.1.26... OK
+Activating libxslt 1.1.26 (from /Volumes/SSPHDU3/project/99_sample/RailsApp/sample_app/vendor/bundler/ruby/2.1.0/gems/nokogiri-1.6.1/ports/i686-apple-darwin11/libxslt/1.1.26)...
+checking for libxml/parser.h... yes
+checking for libxslt/xslt.h... yes
+checking for libexslt/exslt.h... yes
+checking for iconv_open() in iconv.h... no
+checking for iconv_open() in -liconv... yes
+checking for xmlParseDoc() in -lxml2... yes
+checking for xsltParseStylesheetDoc() in -lxslt... yes
+checking for exsltFuncRegister() in -lexslt... yes
+checking for xmlHasFeature()... yes
+checking for xmlFirstElementChild()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetValidStructuredErrors()... yes
+checking for xmlSchemaSetValidStructuredErrors()... yes
+checking for xmlSchemaSetParserStructuredErrors()... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling html_document.c
+compiling html_element_description.c
+html_element_description.c: In function ‘get_description’:
+html_element_description.c:252: warning: cast discards qualifiers from pointer target type
+compiling html_entity_lookup.c
+compiling html_sax_parser_context.c
+compiling html_sax_push_parser.c
+compiling nokogiri.c
+compiling xml_attr.c
+compiling xml_attribute_decl.c
+compiling xml_cdata.c
+compiling xml_comment.c
+compiling xml_document.c
+xml_document.c: In function ‘set_encoding’:
+xml_document.c:159: warning: cast discards qualifiers from pointer target type
+xml_document.c: In function ‘canonicalize’:
+xml_document.c:505: warning: cast discards qualifiers from pointer target type
+xml_document.c: In function ‘Nokogiri_wrap_xml_document’:
+xml_document.c:569: warning: passing argument 1 of ‘st_init_numtable_with_size’ with different width due to prototype
+compiling xml_document_fragment.c
+compiling xml_dtd.c
+compiling xml_element_content.c
+compiling xml_element_decl.c
+compiling xml_encoding_handler.c
+compiling xml_entity_decl.c
+compiling xml_entity_reference.c
+compiling xml_io.c
+xml_io.c: In function ‘io_read_callback’:
+xml_io.c:20: warning: passing argument 4 of ‘rb_rescue’ with different width due to prototype
+xml_io.c: In function ‘io_write_callback’:
+xml_io.c:45: warning: passing argument 4 of ‘rb_rescue’ with different width due to prototype
+compiling xml_libxml2_hacks.c
+compiling xml_namespace.c
+compiling xml_node.c
+compiling xml_node_set.c
+xml_node_set.c: In function ‘dealloc_namespace’:
+xml_node_set.c:9: warning: cast discards qualifiers from pointer target type
+xml_node_set.c:11: warning: cast discards qualifiers from pointer target type
+xml_node_set.c: In function ‘deallocate’:
+xml_node_set.c:52: warning: passing argument 3 of ‘st_foreach’ with different width due to prototype
+compiling xml_processing_instruction.c
+compiling xml_reader.c
+compiling xml_relax_ng.c
+compiling xml_sax_parser.c
+xml_sax_parser.c: In function ‘start_element’:
+xml_sax_parser.c:69: warning: passing argument 1 of ‘rb_ary_new_from_args’ with different width due to prototype
+compiling xml_sax_parser_context.c
+compiling xml_sax_push_parser.c
+compiling xml_schema.c
+compiling xml_syntax_error.c
+compiling xml_text.c
+compiling xml_xpath_context.c
+compiling xslt_stylesheet.c
+xslt_stylesheet.c: In function ‘parse_stylesheet_doc’:
+xslt_stylesheet.c:72: warning: passing argument 2 of ‘rb_str_new’ with different width due to prototype
+xslt_stylesheet.c: In function ‘transform’:
+xslt_stylesheet.c:166: warning: passing argument 2 of ‘rb_str_new’ with different width due to prototype
+xslt_stylesheet.c: In function ‘initFunc’:
+xslt_stylesheet.c:212: warning: passing argument 2 of ‘rb_ary_entry’ with different width due to prototype
+linking shared-object nokogiri/nokogiri.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 nokogiri.bundle ./.gem.20140507-12333-1vgi4wh/nokogiri
+installing default nokogiri libraries
