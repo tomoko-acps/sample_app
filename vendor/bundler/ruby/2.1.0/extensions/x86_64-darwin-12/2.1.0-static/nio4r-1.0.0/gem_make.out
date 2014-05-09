@@ -1,0 +1,44 @@
+/Users/katsube/.rbenv/versions/2.1.1/bin/ruby extconf.rb 
+checking for rb_thread_blocking_region()... yes
+checking for sys/select.h... yes
+checking for poll.h... yes
+checking for sys/epoll.h... no
+checking for sys/event.h... yes
+checking for sys/queue.h... yes
+checking for port.h... no
+checking for sys/resource.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling monitor.c
+In file included from nio4r.h:10,
+                 from monitor.c:6:
+/Users/katsube/.rbenv/versions/2.1.1/include/ruby-2.1.0/ruby/backward/rubyio.h:2:2: warning: #warning use "ruby/io.h" instead of "rubyio.h"
+compiling nio4r_ext.c
+In file included from nio4r.h:10,
+                 from nio4r_ext.c:6:
+/Users/katsube/.rbenv/versions/2.1.1/include/ruby-2.1.0/ruby/backward/rubyio.h:2:2: warning: #warning use "ruby/io.h" instead of "rubyio.h"
+In file included from nio4r_ext.c:7:
+../libev/ev.c:1535: warning: ‘ev_default_loop_ptr’ initialized and declared ‘extern’
+In file included from nio4r_ext.c:7:
+../libev/ev.c: In function ‘ev_run’:
+../libev/ev.c:3431: warning: ‘rb_thread_blocking_region’ is deprecated (declared at /Users/katsube/.rbenv/versions/2.1.1/include/ruby-2.1.0/ruby/intern.h:870)
+compiling selector.c
+In file included from nio4r.h:10,
+                 from selector.c:6:
+/Users/katsube/.rbenv/versions/2.1.1/include/ruby-2.1.0/ruby/backward/rubyio.h:2:2: warning: #warning use "ruby/io.h" instead of "rubyio.h"
+In file included from selector.c:7:
+/Users/katsube/.rbenv/versions/2.1.1/include/ruby-2.1.0/ruby/backward/rubysig.h:14:2: warning: #warning rubysig.h is obsolete
+selector.c: In function ‘NIO_Selector_close’:
+selector.c:391: warning: passing argument 2 of ‘NIO_Selector_synchronize’ from incompatible pointer type
+selector.c:391: warning: passing argument 3 of ‘NIO_Selector_synchronize’ makes pointer from integer without a cast
+selector.c: In function ‘NIO_Selector_closed’:
+selector.c:407: warning: passing argument 2 of ‘NIO_Selector_synchronize’ from incompatible pointer type
+selector.c:407: warning: passing argument 3 of ‘NIO_Selector_synchronize’ makes pointer from integer without a cast
+linking shared-object nio4r_ext.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20140508-9260-gnh4eq
+installing default nio4r_ext libraries
