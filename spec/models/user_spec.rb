@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(name: "Example User", email: "user@example.com",password: "foobar", password_confirmation: "foobar") }
+  before { @user = User.new(name: "Example User", email: "okokokokokok@example.com",password: "foobar", password_confirmation: "foobar") }
 
   subject { @user }
 
@@ -10,9 +10,21 @@ describe User do
   it { expect respond_to(:password_digest) }
   it { expect respond_to(:password) }
   it { expect respond_to(:password_confirmation) }
+  it { expect respond_to(:remenber_token) }
   it { expect respond_to(:authenticate) }
+  it { expect respond_to(:admin) }
 
-  it { expect be_valid }
+  it { should be_valid }
+  it { should_not be_admin }
+
+  describe "with admin attribute set to 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:admin) # toggle で admin属性の状態を反転している
+    end
+
+    it { should be_admin }
+  end
 
   describe "when name is not present" do
   	before { @user.name = " " }
@@ -22,6 +34,11 @@ describe User do
   describe "when email is not present" do
   	before { @user.email = " "}
   	it { should_not be_valid }
+  end
+
+  describe "when password_confirmation is not present" do
+    before { @user.password_confirmation = " "}
+    it { should_not be_valid }
   end
 
   describe "when name is too long" do
@@ -110,5 +127,10 @@ describe User do
   		@user.save
   		expect(@user.reload.email).to eq mixed_case_email.downcase
   	end
+  end
+
+  describe "remenber token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
   end
 end

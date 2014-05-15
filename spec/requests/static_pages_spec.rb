@@ -46,14 +46,14 @@ describe "Static Page" do
 	it "expect have the right links on the layout" do
 		visit root_path
 		click_link "About"
-		expect have_title(full_title('About Us'))
+		should have_title(full_title('About Us'))
 		click_link "Help"
-		expect have_title(full_title('Help'))
+		should have_title(full_title('Help'))
 		click_link "Home"
 		click_link "Sign up now!"
-		expect have_title(full_title('Sign up'))
+		should have_title(full_title('Sign up'))
 		click_link "sample app"
-		expect have_title(full_title(''))
+		should have_title(full_title(''))
 	end
 
 end
