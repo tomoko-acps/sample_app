@@ -16,6 +16,23 @@ describe "Static Page" do
 
 		it_should_behave_like "all static pages"
 		it { expect be_falsy have_title('| Home')} # 否定形の時
+
+		describe "for signed-in users" do
+			let(:user) { FactoryGirl.create(:user) }
+			before do
+				FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+				FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+				sign_in user
+				visit root_path
+			end
+
+			it "should render the user's feed" do
+				user.feed.each do |item|
+					# 各フィード項目が固有のCSS id を持つ事を前提にしている
+					expect(page).to have_selector("li##{item.id}", text: item.content)
+				end
+			end
+		end
 	end
 
 	describe "Help page" do

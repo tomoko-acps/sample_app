@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :microposts, dependent: :destroy
 	has_secure_password
 	# email属性を小文字に変換してメールアドレスの一意性を保証する
 	# データを保存する前にアドレスを小文字に変換する
@@ -18,6 +19,10 @@ class User < ActiveRecord::Base
 
 	def User.encrypt(token)
 		Digest::SHA1.hexdigest(token.to_s)
+	end
+
+	def feed
+		Micropost.where("user_id = ?", id)
 	end
 
 	private
